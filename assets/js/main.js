@@ -38,7 +38,55 @@
     });
 
   });
+//  *****************************
+// JavaScript to sort elements by <h4> content
+// JavaScript to sort elements by <h4> content
+document.addEventListener('DOMContentLoaded', function() {
+  const container = document.querySelector('#team-members'); // Get the parent container
 
+  if (container) {  // Check if container is found
+    const members = Array.from(container.children); // Convert HTMLCollection to an array
+
+    // Sort the members based on the numeric value inside the <h4> tag
+    members.sort((a, b) => {
+      const aValue = parseInt(a.querySelector('h4').textContent); // Get the number in <h4>
+      const bValue = parseInt(b.querySelector('h4').textContent); // Get the number in <h4>
+      return bValue - aValue; // Compare for ascending order
+    });
+
+    // Append sorted elements back to the container
+    members.forEach(member => container.appendChild(member));
+  } else {
+    console.error("Container with ID 'team-members' not found.");
+  }
+});
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  const teamMembers = document.querySelectorAll('.team-member');
+  teamMembers.forEach((member, index) => {
+    const numberCircle = member.querySelector('.badge');
+    numberCircle.textContent = index + 1;
+  });
+});
+
+
+// document.querySelectorAll('.team-member').forEach((card) => {
+//   const number = card.querySelector('.member-info h4').textContent;
+//   const cornerNumber = card.querySelector('.corner-number');
+//   if (cornerNumber) {
+//     cornerNumber.textContent = number;
+//   }
+// });
+
+
+
+
+
+// **********************************
   /**
    * Toggle mobile nav dropdowns
    */
